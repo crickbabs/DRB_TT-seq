@@ -4,8 +4,8 @@ Scripts for the analysis of TT-seq and DRB/TT-seq data.
 
 This is a companion repository to the publication below.  
 *Nascent transcriptome profiles and measurement of transcription elongation using TT-seq.*
-*Lea H. Gregersen^1^ Richard Mitter^2^ and Jesper Q. Svejstrup^1^^\*^*
-*<sup>1</sup>Mechanisms of Transcription Laboratory, The Francis Crick Institute, 1 Midland Road, London, NW1 1AT, UK  *
-*^2^Bioinformatics and Biostatistics, The Francis Crick Institute, 1 Midland Road, London NW1 1AT, UK  *
+*Lea H. Gregersen<sup>1</sup> Richard Mitter<sup>2</sup> and Jesper Q. Svejstrup<sup>1</sup>
+*<sup>1</sup>Mechanisms of Transcription Laboratory, The Francis Crick Institute, 1 Midland Road, London, NW1 1AT, UK*
+*<sup>2</sup>Bioinformatics and Biostatistics, The Francis Crick Institute, 1 Midland Road, London NW1 1AT, UK*
 
 It describes a pipeline for calling RNA Pol II transcription wave peak positions and elongation rates from DRB/TT-seq time-series data using R.  Instructions are given for calculating wave peaks at both the single-gene and meta-gene level.
