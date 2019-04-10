@@ -45,7 +45,7 @@ BAMREV2="${TMPDIR}${SAMPLE}.rev2.bam"
 ```
 
 
-#### BIGWIG files.
+#### bigwig files.
 ```bash
 BIGWIG="${BIGWIGDIR}${SAMPLE}.bigwig"           # BIGWIG file representing all reads
 BIGWIGFOR="${BIGWIGDIR}${SAMPLE}.for.bigwig"    # BIGWIG file representing reads mapping to forward strand
