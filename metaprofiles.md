@@ -46,10 +46,9 @@ samtools index $MATE1
 
 
 #### BAM header compliance.
-It might be necessary to re-header the BAM file so that the chromosome names match those in the ngs.plot database, e.g. standard chromosomes preceeded with "chr" for hg38.<br>
-This is most easily achieved using SAMtools "reheader" function.<br>
+It might be necessary to re-header the BAM file so that the chromosome names match those in the ngs.plot database, e.g. standard chromosomes preceeded with "chr" for hg38.  This is most easily achieved using SAMtools "reheader" function.<br>
 For human hg38 Ensembl alignments the following steps should do the job.<br>
-## This step may be skipped if your header is already compliant.<br>
+This step may be skipped if your header is already compliant.<br>
 ```bash
 MATE1REHEADER="${WORKDIR}WT.mate1.reheader.bam"
 samtools view -H ${MATE1} | sed -e 's/SN:\([0-9XY]*\)/SN:chr\1/' -e 's/SN:MT/SN:chrM/' | samtools reheader - ${MATE1} > ${MATE1REHEADER}
