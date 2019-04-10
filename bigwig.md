@@ -11,7 +11,7 @@ Dependencies:<br>
 
 ---
 
-#### Set working, temporary and results directories
+#### Set working, temporary and results directories.
 ```bash
 WORKDIR="/path/to/my/working_directory/"
 TMPDIR="${WORKDIR}tmp/"
@@ -34,7 +34,7 @@ THREADS=1
 ```
 
 
-#### Temporaty BAM files
+#### Temporaty BAM files.
 ```bash
 BAMFOR="${TMPDIR}${SAMPLE}.fwd.bam"     # BAM file representing reads mapping to forward strand
 BAMREV="${TMPDIR}${SAMPLE}.rev.bam"     # BAM file representing reads mapping to reverse strand
@@ -45,30 +45,30 @@ BAMREV2="${TMPDIR}${SAMPLE}.rev2.bam"
 ```
 
 
-#### BIGWIG files
+#### BIGWIG files.
 ```bash
 BIGWIG="${BIGWIGDIR}${SAMPLE}.bigwig"           # BIGWIG file representing all reads
 BIGWIGFOR="${BIGWIGDIR}${SAMPLE}.for.bigwig"    # BIGWIG file representing reads mapping to forward strand
 BIGWIGREV="${BIGWIGDIR}${SAMPLE}.rev.bigwig"    # BIGWIG file representing reads mapping to reverse strand
 ```
 
-#### Scale factor
+#### Scale factor.
 A scale factor is used to normalise for differences in library sizes across samples.  There are many ways to generate such a factor, such as the ratio of reads between two samples of spike-ins.  A more robust scale factor may be calculated using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample gene count information.  Setting this to 1 indicates no scaling.
 ```bash
 SCALEFACTOR=1
 ```
 
 
-#### Create bigwig file for all reads
+#### Create bigwig file for all reads.
 ```bash
 bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAM -o $BIGWIG
 ```
 
 
-#### Create bigwig file for the forward strand
-Get file for transcripts originating on the forward strand.
-Include reads that are 2nd in a pair (128).  Exclude reads that are mapped to the reverse strand (16)
-Exclude reads that are mapped to the reverse strand (16) and first in a pair (64): 64 + 16 = 80
+#### Create bigwig file for the forward strand.
+Get file for transcripts originating on the forward strand.<br>
+Include reads that are 2nd in a pair (128).  Exclude reads that are mapped to the reverse strand (16)<br>
+Exclude reads that are mapped to the reverse strand (16) and first in a pair (64): 64 + 16 = 80<br>
 ```bash
 samtools view -b -f 128 -F 16 --threads $THREADS $BAM > $BAMF1
 samtools view -b -f 80  --threads $THREADS $BAM > $BAMF2
@@ -78,10 +78,10 @@ bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAMF -o $BIGWIGFOR
 ```
 
 
-#### Create bigwig file for the reverse strand
-Get the file for transcripts that originated from the reverse strand:
-Include reads that map to the reverse strand (128) and are second in a pair (16): 128 + 16 = 144
-Include reads that are first in a pair (64), but exclude those ones that map to the reverse strand (16)
+#### Create bigwig file for the reverse strand.
+Get the file for transcripts that originated from the reverse strand:<br>
+Include reads that map to the reverse strand (128) and are second in a pair (16): 128 + 16 = 144<br>
+Include reads that are first in a pair (64), but exclude those ones that map to the reverse strand (16)<br>
 ```bash
 samtools view -b -f 144 --threads $THREADS $BAM > $BAMR1
 samtools view -b -f 64 -F 16 --threads $THREADS $BAM > $BAMR2
@@ -91,7 +91,7 @@ bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAMR -o $BIGWIGREV
 ```
 
 
-#### Remove temporary files
+#### Remove temporary files.
 ```bash
 rm $BAMFOR $BAMFFOR1 $BAMFFOR2 $BAMREV $BAMREV1 $BAMREV2
 ```
