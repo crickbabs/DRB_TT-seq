@@ -1,4 +1,4 @@
-#### This scripts provides a means of generating strand-specific metagene and TSS profiles from a BAM file using "ngs.plot".
+## This scripts provides a means of generating strand-specific metagene and TSS profiles from a BAM file using "ngs.plot".
 
 *Of course, this will only work if your libraries were created in a strand-specific fashion.*
 
