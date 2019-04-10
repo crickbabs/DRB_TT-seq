@@ -1,4 +1,4 @@
-##This scripts provides a means of generating strand-specific metagene and TSS profiles from a BAM file using "ngs.plot".
+#### This scripts provides a means of generating strand-specific metagene and TSS profiles from a BAM file using "ngs.plot".
 
 *Of course, this will only work if your libraries were created in a strand-specific fashion.*
 
@@ -15,7 +15,7 @@ ngs.plot     https://github.com/shenlab-sinai/ngsplot<br>
 
 #### Set working, temporary and results directories.
 ```bash
-WORKDIR="/camp/stp/babs/working/mitterr/projects/svejstrupj/lea.gregersen/SCAF.methods_paper/work/"
+WORKDIR="/path/to/my/working_directory/"
 TMPDIR="${WORKDIR}tmp/"
 PROFDIR="${WORKDIR}metaprofiles/"
 mkdir -p $TMPDIR
