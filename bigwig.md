@@ -1,7 +1,7 @@
 ## This scripts provides a means of generating scaled strand-specific BIGWIG files from a BAM file containing paired reads.
 
 Adapted from:<br>
-*Ramírez, Fidel, Devon P. Ryan, Björn Grüning, Vivek Bhardwaj, Fabian Kilpert, Andreas S. Richter, Steffen Heyne, Friederike Dündar, and Thomas.*<br>
+*Ramírez, Fidel, Devon P. Ryan, Björn Grüning, Vivek Bhardwaj, Fabian Kilpert, Andreas S. Richter, Steffen Heyne, Friederike Dündar, and Thomas Manke.*<br>
 *deepTools2: A next Generation Web Server for Deep-Sequencing Data Analysis. Nucleic Acids Research (2016). doi:10.1093/nar/gkw257.*<br>
 *https://deeptools.readthedocs.io/en/develop/content/tools/bamCoverage.html*<gr>
 
