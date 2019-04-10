@@ -83,7 +83,7 @@ By default ngs.plot produces average profiles in .pdf format.  There is also a z
 
 
 #### Scaling the profiles
-A scale factor may be used to normalise for differences in library sizes across samples.  There are many ways to generate such a factor, such as the ratio of reads between two samples of spike-ins.  A more robust scale factor may be calculated using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample gene count information.<br><br>
+A scale factor may be used to normalise for differences in library sizes across samples.  There are many ways to generate such a factor, such as the ratio of reads between two samples of spike-ins.  A more robust scale factor may be calculated using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample gene count information.<br>
 
 The scale factor may be used to modify the number of valid reads discovered in the BAM file given in the resulting ".cnt" file.  Edit this file to multiply read count by your scale factor and re-run ngs.plot using the same parameters.
 
