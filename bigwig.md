@@ -1,4 +1,4 @@
-## This scripts provides a means of generating scaled strand-specific BIGWIG files from a BAM file containing paired reads.
+## This bash script provides a means of generating scaled strand-specific BIGWIG files from a BAM file containing paired reads.
 
 Adapted from:<br>
 *Ramírez, Fidel, Devon P. Ryan, Björn Grüning, Vivek Bhardwaj, Fabian Kilpert, Andreas S. Richter, Steffen Heyne, Friederike Dündar, and Thomas Manke.*<br>
