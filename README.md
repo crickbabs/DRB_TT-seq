@@ -9,7 +9,7 @@ This is a companion repository to the publication below.
 *<sup>1</sup>Mechanisms of Transcription Laboratory, The Francis Crick Institute, 1 Midland Road, London, NW1 1AT, UK.*<br>
 *<sup>2</sup>Bioinformatics and Biostatistics, The Francis Crick Institute, 1 Midland Road, London NW1 1AT, UK.*<br>
 
-```
+---
 
 ### align.md
 This is a bash script for aligning paired Illumina sequence reads against a reference genome using STAR resulting in a sorted and indexed BAM file.
