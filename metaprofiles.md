@@ -89,6 +89,6 @@ The scale factor may be used to modify the number of valid reads discovered in t
 
 
 #### Custom genes / intervals
-Profiles may be restricted to specific gene sets and also to user-defined intervals.  See the ngs.plot documentation for further details.
-https://github.com/shenlab-sinai/ngsplot
-https://github.com/shenlab-sinai/ngsplot/wiki/ProgramArguments101
+Profiles may be restricted to specific gene sets and also to user-defined intervals.  See the ngs.plot documentation for further details.<br>
+https://github.com/shenlab-sinai/ngsplot<br>
+https://github.com/shenlab-sinai/ngsplot/wiki/ProgramArguments101<br>
