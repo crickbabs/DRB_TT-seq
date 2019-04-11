@@ -18,7 +18,7 @@ STAR         https://github.com/alexdobin/STAR
 
 #### Set working, temporary and results directories
 ```bash
-WORKDIR="/camp/stp/babs/working/mitterr/projects/svejstrupj/lea.gregersen/SCAF.methods_paper/work/"
+WORKDIR="/path/to/my/working_directory/"
 TMPDIR="${WORKDIR}tmp/"
 ALIGNDIR="${WORKDIR}alignments/"
 SPIKEDIR="${WORKDIR}alignments_spike/"
@@ -46,8 +46,8 @@ THREADS=8
 #### Path to STAR genome indices
 These were created using GRCh38 Ensembl v86 (*Homo sapiens*) and R64-1-1 Ensembl v86 (*Saccharomyces cerevisiae*) genome sequences and GTF files downloaded from the [Ensembl](https://www.ensembl.org/index.html) database.  Please refer to the STAR manual for information on how to create your own genomes indices.
 ```bash
-HUMANIDX="/camp/svc/reference/Genomics/babs/homo_sapiens/ensembl/GRCh38/release-86/genome_idx/star/100bp/"
-SPIKEIDX="/camp/svc/reference/Genomics/babs/saccharomyces_cerevisiae/ensembl/R64-1-1/release-86/genome_idx/rsem/star/100bp/"
+HUMANIDX="/path/to/my/human_genome_index/"
+SPIKEIDX="/path/to/my/yeast_genome_index/"
 ```
 
 
