@@ -2,7 +2,7 @@
 
 In this example a *S. cerevisiae* RNA spike-in was inserted into the human RNA sample prior to sequencing.  Spike-in abundance was estimated by a separate mapping of the sequence reads to the yeast genome using STAR.  However, creating a composite human/yeast genome and aligning to that or using an alignment free abundance estimator such as [kallisto](https://pachterlab.github.io/kallisto/) are also valid options.
 
-The purpose of the spike-in is to generate a scale-factor to account for differences in library size between multiple samples.  A scale factor may be as simple as a ratio of mapped spike-in reads between two samples.  A more robust scale factor may be calculated across multiple samples using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample specific spike-in gene count information.
+The purpose of the spike-in is to generate a scale-factor to account for differences in library size between multiple samples.  A scale factor may be as simple as a ratio of mapped spike-in reads between two samples.  A more robust scale factor may be calculated across multiple samples using the "estimateSizeFactors" function from the [Bioconductor](https://bioconductor.org/) package [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) using sample specific spike-in gene count information.
 
 ---
 
