@@ -1,6 +1,10 @@
 ## This bash script provides instruction for aligning paired Illumina sequence reads against a reference genome using STAR.
 
-In this example a *S. cerevisiae* RNA spike-in was inserted into the human RNA sample prior to sequencing.  Spike-in abundance was estimated by a separate mapping of the sequence reads to the yeast genome using STAR.  However, creating a composite human/yeast genome and aligning to that or using an alignment free abundance estimator such as [kallisto](https://pachterlab.github.io/kallisto/) are also valid options.<br>The purpose of the spike-in is to generate a scale-factor to account for differences in library size between multiple samples.  A scale factor may be as simple as a ratio of mapped spike-in reads between two samples.  A more robust scale factor may be calculated across multiple samples using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample specific spike-in gene count information.
+In this example a *S. cerevisiae* RNA spike-in was inserted into the human RNA sample prior to sequencing.  Spike-in abundance was estimated by a separate mapping of the sequence reads to the yeast genome using STAR.  However, creating a composite human/yeast genome and aligning to that or using an alignment free abundance estimator such as [kallisto](https://pachterlab.github.io/kallisto/) are also valid options.
+
+The purpose of the spike-in is to generate a scale-factor to account for differences in library size between multiple samples.  A scale factor may be as simple as a ratio of mapped spike-in reads between two samples.  A more robust scale factor may be calculated across multiple samples using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample specific spike-in gene count information.
+
+---
 
 The output of this script are two sorted and index BAM files - one for the target organism and one for the spike-in.  There are also gene level counts produced by STAR that may be may used to generate scale factors.
 
