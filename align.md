@@ -8,7 +8,7 @@ The purpose of the spike-in is to generate a scale-factor to account for differe
 
 The output of this script are two sorted and index BAM files - one for the target organism and one for the spike-in.  There are also gene level counts produced by STAR that may be may used to generate scale factors.
 
-*It is assumed that the FASTQ reads have been checked for quality and any filtering, adapter trimming etc. that might be required has been done prior to this step.*
+*It is assumed that the FASTQ reads have been checked for quality and any filtering, adapter trimming etc. that might be required has been done prior to running this script.*
 
 Dependencies:
 SAMtools     http://samtools.sourceforge.net/
