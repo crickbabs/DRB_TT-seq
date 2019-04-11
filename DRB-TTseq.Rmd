@@ -57,7 +57,7 @@ library(DT)
 
 
 ```{r work_dir, include=FALSE}
-work.dir <- "/camp/stp/babs/working/mitterr/projects/svejstrupj/lea.gregersen/SCAF.methods_paper/"
+work.dir <- "/path/to/my/working_directory/"
 setwd(work.dir)
 ```
 
@@ -88,7 +88,7 @@ seq.info     <- data.frame(
 ```
 
 
-Filters genes to remove any that are overly short or long, any non-coding genes any overlapping another gene and any that map to non-standard chromosomes.
+Filters genes to remove any that are overly short, overly long, any non-coding genes any overlapping another gene and any that map to non-standard chromosomes.
 ```{r annotation}
 gtf.dat <- import(gtf.file)
 gene.gr <- gtf.dat[gtf.dat$type %in% "gene",]
@@ -271,7 +271,7 @@ wf.genes.filt <- wf.genes.filt[wf.genes.filt[,"DRB.10min"]>2000,]
 ```
 
 
-Sometimes it is necessary to not consider the final timepoint when generating the filter as transcription might have already reached the end of the gene at that point.  This version only uses the first three timepoints.
+Sometimes it is necessary to disregard the final timepoint when generating the filter as transcription might have already reached the end of the gene at that point.  This version only uses the first three timepoints.
 ```{r drb.single_filt.alternative}
 # wf.genes.filt <- wf.genes[expr.gids,c("DRB.10min","DRB.20min","DRB.30min")]
 # wf.genes.filt <- wf.genes.filt[!apply(wf.genes.filt,1,function(x){any(is.na(x))}),]
