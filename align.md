@@ -6,9 +6,11 @@ The purpose of the spike-in is to generate a scale-factor to account for differe
 
 ---
 
-The output of this script are two sorted and index BAM files - one for the target organism and one for the spike-in.  There are also gene level counts produced by STAR that may be may used to generate scale factors.
+The output of this script are two sorted and index BAM files - one for the target organism and one for the spike-in.  There are also gene level counts produced by STAR ("*.ReadsPerGene.out.tab") that may be may used to generate scale factors.
 
 *It is assumed that the FASTQ reads have been checked for quality and any filtering, adapter trimming etc. that might be required has been done prior to running this script.*
+
+If there are multiple sets of FASTQ files per sample, i.e. more than 1 set of paired reads, it is recommended to align these separately and merge the resultant BAM files using "samtools merge" before continuing with the downstream analysis.
 
 Dependencies:
 SAMtools     http://samtools.sourceforge.net/
@@ -55,7 +57,7 @@ SPIKEIDX="/path/to/my/yeast_genome_index/"
 ```bash
 cd $ALIGNDIR
 STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${HUMANIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE} --outFileNamePrefix ${SAMPLE}.
-samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.bam
+samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.Aligned.out.bam
 samtools index ${ALIGNDIR}${SAMPLE}.sorted.bam
 ```
 
@@ -64,6 +66,6 @@ samtools index ${ALIGNDIR}${SAMPLE}.sorted.bam
 ```bash
 cd $SPIKEDIR
 STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${SPIKEIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE}.spike --outFileNamePrefix ${SAMPLE}.
-samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.bam
+samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.Aligned.out.bam
 samtools index ${ALIGNDIR}${SAMPLE}.sorted.bam
 ```
