@@ -14,10 +14,10 @@ If there are multiple sets of FASTQ files per sample, i.e. more than 1 set of pa
 
 Marking duplicate reads isn't strictly necessary but the calculated levels of duplication provide insight into sample quality.  Also, counts of unique mapped reads may be useful for scale factor normalisation.
 
-Dependencies:
-SAMtools     http://samtools.sourceforge.net/
-Picard       https://broadinstitute.github.io/picard/
-STAR         https://github.com/alexdobin/STAR
+Dependencies:<br>
+SAMtools     http://samtools.sourceforge.net/<br>
+Picard       https://broadinstitute.github.io/picard/<br>
+STAR         https://github.com/alexdobin/STAR<br>
 
 ---
 
