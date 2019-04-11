@@ -30,12 +30,11 @@ mkdir -p $SPIKEDIR
 ```
 
 
-#### Sample information: sample name, location of paired FASTQ files.
+#### Sample information: sample name and location of paired FASTQ files.
 ```bash
 SAMPLE="WT";
 FQ1="${WORKDIR}FQ1.fastq.gz"
 FQ2="${WORKDIR}FQ2.fastq.gz"
-#####################BAM="${ALIGNDIR}{=${SAMPLE}.bam"
 ```
 
 
