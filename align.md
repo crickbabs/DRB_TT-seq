@@ -12,8 +12,11 @@ The output of this script are two sorted and index BAM files - one for the targe
 
 If there are multiple sets of FASTQ files per sample, i.e. more than 1 set of paired reads, it is recommended to align these separately and merge the resultant BAM files using "samtools merge" before continuing with the downstream analysis.
 
+Marking duplicate reads isn't strictly necessary but the calculated levels of duplication provide insight into sample quality.  Also, counts of unique mapped reads may be useful for scale factor normalisation.
+
 Dependencies:
 SAMtools     http://samtools.sourceforge.net/
+Picard       https://broadinstitute.github.io/picard/
 STAR         https://github.com/alexdobin/STAR
 
 ---
@@ -52,19 +55,22 @@ SPIKEIDX="/path/to/my/yeast_genome_index/"
 ```
 
 
-#### Align to the human genome.  Sort and index the genome BAM.
+#### Align to the human genome.  Sort, mark duplicates and index the genome BAM.
 ```bash
 cd $ALIGNDIR
 STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${HUMANIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE} --outFileNamePrefix ${SAMPLE}.
 samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.Aligned.out.bam
-samtools index ${ALIGNDIR}${SAMPLE}.sorted.bam
+java -jar picard.jar MarkDuplicates INPUT=${ALIGNDIR}${SAMPLE}.sorted.bam OUTPUT=${ALIGNDIR}${SAMPLE}.sorted.marked.bam METRICS_FILE=${ALIGNDIR}${SAMPLE}.sorted.marked.metrics REMOVE_DUPLICATES=false ASSUME_SORTED=true MAX_RECORDS_IN_RAM=2000000 VALIDATION_STRINGENCY=LENIENT TMP_DIR=${TMPDIR}${SAMPLE}
+samtools index ${ALIGNDIR}${SAMPLE}.sorted.marked.bam
+rm ${ALIGNDIR}${SAMPLE}.sorted.bam
 ```
 
-
-#### Align to the yeast genome (spike-in).  Sort and index the genome BAM.
+#### Align to the yeast genome (spike-in).  Sort, mark duplicates and index the genome BAM.
 ```bash
 cd $SPIKEDIR
 STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${SPIKEIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE}.spike --outFileNamePrefix ${SAMPLE}.
-samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.Aligned.out.bam
-samtools index ${ALIGNDIR}${SAMPLE}.sorted.bam
+samtools sort --threads ${THREADS} -o ${SPIKEDIR}${SAMPLE}.sorted.bam ${SPIKEDIR}${SAMPLE}.Aligned.out.bam
+java -jar picard.jar MarkDuplicates INPUT=${SPIKEDIR}${SAMPLE}.sorted.bam OUTPUT=${SPIKEDIR}${SAMPLE}.sorted.marked.bam METRICS_FILE=${SPIKEDIR}${SAMPLE}.sorted.marked.metrics REMOVE_DUPLICATES=false ASSUME_SORTED=true MAX_RECORDS_IN_RAM=2000000 VALIDATION_STRINGENCY=LENIENT TMP_DIR=${TMPDIR}${SAMPLE}
+samtools index ${SPIKEDIR}${SAMPLE}.sorted.marked.bam 
+rm ${SPIKEDIR}${SAMPLE}.sorted.bam
 ```
