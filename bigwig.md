@@ -53,7 +53,7 @@ BIGWIGREV="${BIGWIGDIR}${SAMPLE}.rev.bigwig"    # BIGWIG file representing reads
 ```
 
 #### Scale factor.
-A scale factor is used to normalise for differences in library sizes across samples.  There are many ways to generate such a factor, such as the ratio of reads between two samples of spike-ins.  A more robust scale factor may be calculated using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample gene count information.  Setting this to 1 indicates no scaling.
+A scale factor is used to normalise for differences in library sizes across samples.  There are many ways to generate such a factor, such as the ratio of reads between two samples of spike-ins.  A more robust scale factor may be calculated using the "estimateSizeFactors" function from the Bioconductor package DESeq2 using sample gene count information.  Setting this to 1 indicates no scaling.  Note that it is necessary to use the recipricol of the the scale factor returned by DESeq2 when passing to the bamCoverage function since coverage will be multiplied by this.
 ```bash
 SCALEFACTOR=1
 ```
