@@ -38,8 +38,8 @@ THREADS=1
 ```bash
 BAMFOR="${TMPDIR}${SAMPLE}.fwd.bam"     # BAM file representing reads mapping to forward strand
 BAMREV="${TMPDIR}${SAMPLE}.rev.bam"     # BAM file representing reads mapping to reverse strand
-BAMFFOR1="${TMPDIR}${SAMPLE}.fwd1.bam"
-BAMFFOR2="${TMPDIR}${SAMPLE}.fwd2.bam"
+BAMFOR1="${TMPDIR}${SAMPLE}.fwd1.bam"
+BAMFOR2="${TMPDIR}${SAMPLE}.fwd2.bam"
 BAMREV1="${TMPDIR}${SAMPLE}.rev1.bam"
 BAMREV2="${TMPDIR}${SAMPLE}.rev2.bam"
 ```
@@ -70,11 +70,11 @@ Get file for transcripts originating on the forward strand.<br>
 Include reads that are 2nd in a pair (128).  Exclude reads that are mapped to the reverse strand (16)<br>
 Exclude reads that are mapped to the reverse strand (16) and first in a pair (64): 64 + 16 = 80<br>
 ```bash
-samtools view -b -f 128 -F 16 --threads $THREADS $BAM > $BAMF1
-samtools view -b -f 80  --threads $THREADS $BAM > $BAMF2
-samtools merge --threads $THREADS -f $BAMF $BAMF1 $BAMF2
-samtools index $BAMF
-bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAMF -o $BIGWIGFOR
+samtools view -b -f 128 -F 16 --threads $THREADS $BAM > $BAMFOR1
+samtools view -b -f 80  --threads $THREADS $BAM > $BAMFOR2
+samtools merge --threads $THREADS -f $BAMFOR $BAMFOR1 $BAMFOR2
+samtools index $BAMFOR
+bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAMFOR -o $BIGWIGFOR
 ```
 
 
@@ -83,11 +83,11 @@ Get the file for transcripts that originated from the reverse strand:<br>
 Include reads that map to the reverse strand (128) and are second in a pair (16): 128 + 16 = 144<br>
 Include reads that are first in a pair (64), but exclude those ones that map to the reverse strand (16)<br>
 ```bash
-samtools view -b -f 144 --threads $THREADS $BAM > $BAMR1
-samtools view -b -f 64 -F 16 --threads $THREADS $BAM > $BAMR2
-samtools merge --threads $THREADS -f $BAMR $BAMR1 $BAMR2
-samtools index $BAMR
-bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAMR -o $BIGWIGREV
+samtools view -b -f 144 --threads $THREADS $BAM > $BAMREV1
+samtools view -b -f 64 -F 16 --threads $THREADS $BAM > $BAMREV2
+samtools merge --threads $THREADS -f $BAMREV $BAMREV1 $BAMREV2
+samtools index $BAMREV
+bamCoverage --scaleFactor $SCALEFACTOR -p $THREADS -b $BAMREV -o $BIGWIGREV
 ```
 
 
