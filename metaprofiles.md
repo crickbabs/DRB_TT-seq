@@ -51,7 +51,7 @@ For human hg38 Ensembl alignments the following steps should do the job.<br>
 This step may be skipped if your header is already compliant.<br>
 ```bash
 MATE1REHEADER="${WORKDIR}WT.mate1.reheader.bam"
-samtools view -H ${MATE1} | sed -e 's/SN:\([0-9XY]*\)/SN:chr\1/' -e 's/SN:MT/SN:chrM/' | samtools reheader - ${MATE1} > ${MATE1REHEADER}
+samtools view --threads $THREADS -H ${MATE1} | sed -e 's/SN:\([0-9XY]*\)/SN:chr\1/' -e 's/SN:MT/SN:chrM/' | samtools reheader - ${MATE1} > ${MATE1REHEADER}
 samtools index ${MATE1REHEADER}
 ```
 
