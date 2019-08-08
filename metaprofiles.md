@@ -75,7 +75,6 @@ do
     OUTPUT="${PROFDIR}${SAMPLE}.${REGION}.${STRAND}"
     ngs.plot.r -G hg38 -R $REGION -C ${MATE1REHEADER} -O $OUTPUT -P $THREADS -SS $STRAND -SE 1 -L 5000 -F chipseq -D ensembl
 done
-```
 
 ## TES
 REGION="tes"
