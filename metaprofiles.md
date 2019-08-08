@@ -1,4 +1,4 @@
-## This bash script provides a means of generating strand-specific metagene and TSS profiles from a BAM file using "ngs.plot".
+## This bash script provides a means of generating strand-specific metagene, TSS and TES profiles from a BAM file using "ngs.plot".
 
 *Of course, this will only work if your libraries were created in a strand-specific fashion.*
 
@@ -70,6 +70,15 @@ done
 
 ## TSS
 REGION="tss"
+for STRAND in both same opposite
+do
+    OUTPUT="${PROFDIR}${SAMPLE}.${REGION}.${STRAND}"
+    ngs.plot.r -G hg38 -R $REGION -C ${MATE1REHEADER} -O $OUTPUT -P $THREADS -SS $STRAND -SE 1 -L 5000 -F chipseq -D ensembl
+done
+```
+
+## TES
+REGION="tes"
 for STRAND in both same opposite
 do
     OUTPUT="${PROFDIR}${SAMPLE}.${REGION}.${STRAND}"
