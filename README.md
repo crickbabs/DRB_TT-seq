@@ -9,6 +9,9 @@ This is a companion repository to the publication below.
 *<sup>1</sup>Mechanisms of Transcription Laboratory, The Francis Crick Institute, 1 Midland Road, London, NW1 1AT, UK.*<br>
 *<sup>2</sup>Bioinformatics and Biostatistics, The Francis Crick Institute, 1 Midland Road, London NW1 1AT, UK.*<br>
 
+
+Release v1.1 (Publication). 
+
 ---
 
 ### [align.md](https://github.com/crickbabs/DRB_TT-seq/blob/master/align.md)
