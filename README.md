@@ -24,7 +24,7 @@ This is a bash markdown document for generating scaled strand-specific BIGWIG fi
 This is a bash markdown document for generating strand-specific metagene, TSS and TES profiles from a BAM file using "ngs.plot".
 
 ### [DRB-TTseq.Rmd](https://github.com/crickbabs/DRB_TT-seq/blob/master/DRB-TTseq.Rmd)
-This is an R markdown document describing a pipeline for calling RNA Pol II transcription wave peak positions and elongation rates from DRB/TT-seq time-series data using R.  Instructions are given for calculating wave peaks at both the single-gene and meta-gene level.  An example html output of this script is given in **[DRB-TTseq.html](https://github.com/crickbabs/DRB_TT-seq/blob/master/DRB-TTseq.html)**
+This is an R markdown document describing a pipeline for calling RNA Pol II transcription wave peak positions and elongation rates from DRB/TT-seq time-series data using R.  Instructions are given for calculating wave peaks at both the single-gene and meta-gene level.  An example html output of this script is given in **[DRB-TTseq.html](https://github.com/crickbabs/DRB_TT-seq/blob/master/DRB-TTseq.html)**  Users unfamiliar with R markdown are recommended to explore it using [rstudio](https://www.rstudio.com/).
 
 ### [data](https://github.com/crickbabs/DRB_TT-seq/blob/master/data/README.md)
 This directory contains details of demo FASTQ data available from the NCBI's Short Read Archive (SRA).
