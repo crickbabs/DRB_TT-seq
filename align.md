@@ -58,7 +58,7 @@ SPIKEIDX="/path/to/my/yeast_genome_index/"
 #### Align to the human genome.  Sort, mark duplicates and index the genome BAM.
 ```bash
 cd $ALIGNDIR
-STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${HUMANIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE} --outFileNamePrefix ${SAMPLE}.
+STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${HUMANIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE} --outFileNamePrefix ${ALIGNDIR}${SAMPLE}.
 samtools sort --threads ${THREADS} -o ${ALIGNDIR}${SAMPLE}.sorted.bam ${ALIGNDIR}${SAMPLE}.Aligned.out.bam
 java -jar picard.jar MarkDuplicates INPUT=${ALIGNDIR}${SAMPLE}.sorted.bam OUTPUT=${ALIGNDIR}${SAMPLE}.sorted.marked.bam METRICS_FILE=${ALIGNDIR}${SAMPLE}.sorted.marked.metrics REMOVE_DUPLICATES=false ASSUME_SORTED=true MAX_RECORDS_IN_RAM=2000000 VALIDATION_STRINGENCY=LENIENT TMP_DIR=${TMPDIR}${SAMPLE}
 samtools index ${ALIGNDIR}${SAMPLE}.sorted.marked.bam
@@ -68,7 +68,7 @@ rm ${ALIGNDIR}${SAMPLE}.sorted.bam
 #### Align to the yeast genome (spike-in).  Sort, mark duplicates and index the genome BAM.
 ```bash
 cd $SPIKEDIR
-STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${SPIKEIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE}.spike --outFileNamePrefix ${SAMPLE}.
+STAR --runThreadN ${THREADS} --runMode alignReads --genomeDir ${SPIKEIDX} --readFilesIn ${FQ1} ${FQ2} --readFilesCommand zcat --quantMode TranscriptomeSAM GeneCounts --twopassMode Basic --outSAMunmapped None --outSAMattrRGline ID:${SAMPLE} PU:${SAMPLE} SM:${SAMPLE} LB:unknown PL:illumina --outSAMtype BAM Unsorted --outTmpDir ${TMPDIR}${SAMPLE}.spike --outFileNamePrefix ${ALIGNDIR}${SAMPLE}.
 samtools sort --threads ${THREADS} -o ${SPIKEDIR}${SAMPLE}.sorted.bam ${SPIKEDIR}${SAMPLE}.Aligned.out.bam
 java -jar picard.jar MarkDuplicates INPUT=${SPIKEDIR}${SAMPLE}.sorted.bam OUTPUT=${SPIKEDIR}${SAMPLE}.sorted.marked.bam METRICS_FILE=${SPIKEDIR}${SAMPLE}.sorted.marked.metrics REMOVE_DUPLICATES=false ASSUME_SORTED=true MAX_RECORDS_IN_RAM=2000000 VALIDATION_STRINGENCY=LENIENT TMP_DIR=${TMPDIR}${SAMPLE}
 samtools index ${SPIKEDIR}${SAMPLE}.sorted.marked.bam 
