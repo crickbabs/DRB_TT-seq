@@ -33,6 +33,9 @@ Users unfamiliar with R markdown are recommended to explore it using [rstudio](h
 ### [data](https://github.com/crickbabs/DRB_TT-seq/blob/master/data/README.md)
 This directory contains details of demo FASTQ data available from the NCBI's Short Read Archive (SRA).
 
+### [scripts](https://github.com/crickbabs/DRB_TT-seq/blob/master/scripts)
+This directory contains plain script versions of the markdown documents.
+
 ---
 
 ### References
