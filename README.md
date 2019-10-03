@@ -55,4 +55,6 @@ This directory contains details of demo FASTQ data available from the NCBI's Sho
 
 * Ramirez, F., Dundar, F., Diehl, S., Gruning, B. A. & Manke, T. deepTools: a flexible platform for exploring deep-sequencing data.  Nucleic Acids Res 42, W187-191, doi:10.1093/nar/gku365 (2014).
 
+* Shen, L., Shao, N., Liu, X. and Nestler, E. (2014) ngs.plot: Quick mining and visualization of next-generation sequencing data by integrating genomic databases, BMC Genomics, 15, 284.
+
 * http://broadinstitute.github.io/picard/.
