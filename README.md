@@ -37,6 +37,26 @@ This directory contains details of demo FASTQ data available from the NCBI's Sho
 ### [scripts](https://github.com/crickbabs/DRB_TT-seq/blob/master/scripts)
 This directory contains plain script versions of the markdown documents.
 
+
+---
+
+### Dependencies and requirements
+
+Scripts were tested using the following software versions:
+
+* SAMtools v1.3.1
+* deepTools v2.5.3
+* BEDTools/2.27.1
+* kentUtils
+* STAR 2.5.2a
+* Picard v2.1.1
+* R v3.5.1 running Bioconductor version 3.7
+* ngsplot v2.63
+
+Example Bash scripts are written to be executed in a linux environment.  Scripts were tested on a linux server equipped with a 8-core Intel E5-2640 Haswell CPU running at 2.6GHz and using 8 processors and 8gb RAM.  
+
+The R script may be run on any machine able to run R v3.5.1 or higher, though for large datasets it is recommended that at least 16gb RAM be made available to the process.
+
 ---
 
 ### References
