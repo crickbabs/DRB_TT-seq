@@ -28,7 +28,7 @@ This is a bash markdown document for generating strand-specific metagene, TSS an
 
 ### [DRB-TTseq.md](https://github.com/crickbabs/DRB_TT-seq/blob/master/DRB-TTseq.md)
 This is a markdown document describing a pipeline for calling RNA Pol II transcription wave peak positions and elongation rates from DRB/TT-seq time-series data using R.  Instructions are given for calculating wave peaks at both the single-gene and meta-gene level.  An Rmarkdown version of the scripts is available in the [scripts](https://github.com/crickbabs/DRB_TT-seq/blob/master/scripts)
-An example html output of this script is given in **[DRB-TTseq.html](https://github.com/crickbabs/DRB_TT-seq/blob/master/DRB-TTseq.html)** - save to your desktop then open with your browser in order to view it.
+An example html output of this script is given in **[DRB-TTseq.html](https://github.com/crickbabs/DRB_TT-seq/blob/master/DRB-TTseq.html)** - view raw, save to your desktop then open with your browser in order to view it.
 Users unfamiliar with R markdown are recommended to explore it using [rstudio](https://www.rstudio.com/).
 
 ### [data](https://github.com/crickbabs/DRB_TT-seq/blob/master/data/README.md)
