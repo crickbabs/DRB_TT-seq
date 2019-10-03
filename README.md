@@ -20,6 +20,9 @@ This is a bash markdown document for aligning paired Illumina sequence reads aga
 ### [bigwig.md](https://github.com/crickbabs/DRB_TT-seq/blob/master/bigwig.md)
 This is a bash markdown document for generating scaled strand-specific BIGWIG files from a BAM file containing paired reads.
 
+### [bigwig_bedtools.md](https://github.com/crickbabs/DRB_TT-seq/blob/master/bigwig_bedtools.md)
+This is a bash markdown document for generating scaled strand-specific BIGWIG files from a BAM file containing paired reads.  It is meant as an alternative to **bigwig.md** to be used on large bam files when deeptools struggles.
+
 ### [metaprofiles.md](https://github.com/crickbabs/DRB_TT-seq/blob/master/metaprofiles.md)
 This is a bash markdown document for generating strand-specific metagene, TSS and TES profiles from a BAM file using "ngs.plot".
 
