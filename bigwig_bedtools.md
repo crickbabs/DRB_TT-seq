@@ -12,7 +12,7 @@ Dependencies:<br>
 
 #### Set working, temporary and results directories.
 ```bash
-WORKDIR="/camp/stp/babs/working/mitterr/projects/svejstrupj/lea.gregersen/SCAF.methods_paper/testing/"
+WORKDIR="/path/to/my/working_directory/"
 TMPDIR="${WORKDIR}tmp/"
 BIGWIGDIR="${WORKDIR}bigwig/"
 mkdir -p $TMPDIR
@@ -67,7 +67,6 @@ SCALEFACTOR=1
 #### Create bigwig file for all reads.
 ```bash
 bedtools genomecov -ibam $BAM -bg -split -scale $SCALEFACTOR > $BEDGRAPH
-ml purge; ml Kent_tools/20190117-linux.x86_64
 bedGraphToBigWig $BEDGRAPH $CHRSIZE $BIGWIG
 ```
 
@@ -93,5 +92,5 @@ bedGraphToBigWig $BEDGRAPHREV $CHRSIZE $BIGWIGREV
 
 #### Remove temporary files.
 ```bash
-#rm $BAMFOR $BAMFFOR1 $BAMFFOR2 $BAMREV $BAMREV1 $BAMREV2 $BEDGRAPH $BEDGRAPHFOR $BEDGRAPHREV
+rm $BAMFOR $BAMFFOR1 $BAMFFOR2 $BAMREV $BAMREV1 $BAMREV2 $BEDGRAPH $BEDGRAPHFOR $BEDGRAPHREV
 ```
