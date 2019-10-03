@@ -2,10 +2,9 @@ This is a companion script to the publication below.  It describes a pipeline fo
   
 
 *Nascent transcriptome profiles and measurement of transcription elongation using TT-seq.*
-*Lea H. Gregersen^1^ Richard Mitter^2^ and Jesper Q. Svejstrup^1^^\*^*
-*^1^Mechanisms of Transcription Laboratory, The Francis Crick Institute, 1 Midland Road, London, NW1 1AT, UK  *
-*^2^Bioinformatics and Biostatistics, The Francis Crick Institute, 1 Midland Road, London NW1 1AT, UK  *
-
+Lea H. Gregersen<sup>1</sup> Richard Mitter<sup>2</sup> and Jesper Q. Svejstrup<sup>1</sup>
+<sup>1</sup>Mechanisms of Transcription Laboratory, The Francis Crick Institute, 1 Midland Road, London, NW1 1AT, UK
+<sup>2</sup>Bioinformatics and Biostatistics, The Francis Crick Institute, 1 Midland Road, London NW1 1AT, UK
 
 ---
 
@@ -104,7 +103,7 @@ for (n in 1:length(sigs.list)) {
 
 ***
 
-#### Meta-gene level wave peak calling.
+## Meta-gene level wave peak calling.
 
 #### Create meta-profiles by taking a trimmed mean.
 ```bash
@@ -189,7 +188,7 @@ P2
 
 ***
 
-### Single gene level wave peak calling
+## Single gene level wave peak calling
 
 #### Generate a set of gene ids that pass an arbitrary expression threshold.
 ```bash
