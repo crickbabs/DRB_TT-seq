@@ -5,7 +5,7 @@ This alternative to "bigwig.sh" uses bedtools (Quinlan, *et al* 2014) rather tha
 Dependencies:<br>
     SAMtools     http://samtools.sourceforge.net/<br>
     bedtools     https://bedtools.readthedocs.io/en/latest/<br>
-    Kent-tools   http://bioinformatics.oxfordjournals.org/content/26/17/2204.long</br>
+    kentUtils    http://bioinformatics.oxfordjournals.org/content/26/17/2204.long</br>
 
 ---
 
