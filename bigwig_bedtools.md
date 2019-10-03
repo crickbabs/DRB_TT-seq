@@ -1,6 +1,6 @@
 ## This bash script provides a means of generating scaled strand-specific BIGWIG files from a BAM file containing paired reads.
-## This alternative to "bigwig.sh" uses bedtools (Quinlan, *et al* 2014) rather than deeptools to generate bedgraph files which are in turn converted to bigwig via Jim Kent's BigWig and BigBed tools.  and is more able to deal with large bam files.
 
+This alternative to "bigwig.sh" uses bedtools (Quinlan, *et al* 2014) rather than deeptools to generate bedgraph files which are in turn converted to bigwig via Jim Kent's BigWig and BigBed tools.  It is more able to deal with large bam files.
 
 Dependencies:<br>
     SAMtools     http://samtools.sourceforge.net/<br>
