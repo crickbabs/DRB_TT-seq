@@ -9,7 +9,7 @@ Dependencies:<br>
     SAMtools     http://samtools.sourceforge.net/<br>
     deepTools    https://deeptools.readthedocs.io/en/develop/index.html<br>
 
-If you experience performance issues using this script it is recommended to try "bigwig_bedtools.sh" as an alternative.
+If you experience performance issues using this script it is recommended to try [bigwig_bedtools.sh](https://github.com/crickbabs/DRB_TT-seq/blob/master/bigwig_bedtools.md) as an alternative.
 
 ---
 
