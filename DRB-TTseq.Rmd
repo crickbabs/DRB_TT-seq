@@ -73,18 +73,9 @@ drb.df <- drb.df[order(drb.df$time),]
 ```
 
 
-Genome FASTA and transcriptome GTF files are available for download from [Ensembl](http://www.ensembl.org/index.html).  The FASTA file may be indexed using  [SAMtools](http://www.htslib.org/doc/samtools.html) *faidx* command.  The GTF file may be indexed using [igvtools](https://software.broadinstitute.org/software/igv/igvtools_commandline) *index* command. Make sure that the assembly matches the one used for read alignments.
+Genome transcriptome GTF files are available for download from [Ensembl](http://www.ensembl.org/index.html).  The GTF file may be indexed using [igvtools](https://software.broadinstitute.org/software/igv/igvtools_commandline) *index* command. Make sure that the assembly matches the one used for read alignments.
 ```{r drb.reference_data}
-genome.fasta <- "data/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa"
-genome.faidx <- "data/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa.fai"
 gtf.file     <- "data/Homo_sapiens.GRCh38.86.gtf"
-
-## Sequence info
-seq.info     <- read.delim(genome.faidx,header=F,sep="\t",stringsAsFactors=F,check.names=F)
-seq.info     <- data.frame(
-    chrom       = seq.info[,1],
-    length      = seq.info[,2],
-    is_circular = seq.info[,1] %in% "MT")
 ```
 
 
