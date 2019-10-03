@@ -33,7 +33,9 @@ Users unfamiliar with R markdown are recommended to explore it using [rstudio](h
 ### [data](https://github.com/crickbabs/DRB_TT-seq/blob/master/data/README.md)
 This directory contains details of demo FASTQ data available from the NCBI's Short Read Archive (SRA).
 
-### references
+---
+
+### References
 
 * Andrews, S. FastQC: a quality control tool for high throughput sequence data. Available online at: http://www.bioinformatics.babraham.ac.uk/projects/fastqc (2010).
 
