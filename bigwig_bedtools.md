@@ -52,7 +52,7 @@ BEDGRAPHFOR="${TMPDIR}${SAMPLE}.for.bedgraph"    # BEDGRAPH file representing re
 BEDGRAPHREV="${TMPDIR}${SAMPLE}.rev.bedgraph"    # BEDGRAPH file representing reads mapping to reverse strand
 ```
 
-#### Sort bedgraph files.
+#### Sorted bedgraph files.
 ```bash
 BEDGRAPHSORTED="${TMPDIR}${SAMPLE}.sorted.bedgraph"           # Sorted BEDGRAPH file representing all reads
 BEDGRAPHFORSORTED="${TMPDIR}${SAMPLE}.for.sorted.bedgraph"    # Sorted BEDGRAPH file representing reads mapping to forward strand
