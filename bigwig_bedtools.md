@@ -52,6 +52,13 @@ BEDGRAPHFOR="${TMPDIR}${SAMPLE}.for.bedgraph"    # BEDGRAPH file representing re
 BEDGRAPHREV="${TMPDIR}${SAMPLE}.rev.bedgraph"    # BEDGRAPH file representing reads mapping to reverse strand
 ```
 
+#### Sort bedgraph files.
+```bash
+BEDGRAPHSORTED="${TMPDIR}${SAMPLE}.sorted.bedgraph"           # Sorted BEDGRAPH file representing all reads
+BEDGRAPHFORSORTED="${TMPDIR}${SAMPLE}.for.sorted.bedgraph"    # Sorted BEDGRAPH file representing reads mapping to forward strand
+BEDGRAPHREVSORTED="${TMPDIR}${SAMPLE}.rev.sorted.bedgraph"    # Sorted BEDGRAPH file representing reads mapping to reverse strand
+```
+
 #### bigwig files.
 ```bash
 BIGWIG="${BIGWIGDIR}${SAMPLE}.bigwig"           # BIGWIG file representing all reads
@@ -67,7 +74,8 @@ SCALEFACTOR=1
 #### Create bigwig file for all reads.
 ```bash
 bedtools genomecov -ibam $BAM -bg -split -scale $SCALEFACTOR > $BEDGRAPH
-bedGraphToBigWig $BEDGRAPH $CHRSIZE $BIGWIG
+sort -k1,1 -k2,2 $BEDGRAPH > $BEDGRAPHSORTED
+bedGraphToBigWig $BEDGRAPHSORTED $CHRSIZE $BIGWIG
 ```
 
 #### Create bigwig file for the forward strand.
@@ -77,7 +85,8 @@ samtools view -b -f 80  --threads $THREADS $BAM > $BAMFOR2
 samtools merge --threads $THREADS -f $BAMFOR $BAMFOR1 $BAMFOR2
 samtools index $BAMFOR
 bedtools genomecov -ibam $BAMFOR -bg -split -strand + -scale $SCALEFACTOR > $BEDGRAPHFOR
-bedGraphToBigWig $BEDGRAPHFOR $CHRSIZE $BIGWIGFOR
+sort -k1,1 -k2,2 $BEDGRAPHFOR > $BEDGRAPHFORSORTED
+bedGraphToBigWig $BEDGRAPHFORSORTED $CHRSIZE $BIGWIGFOR
 ```
 
 #### Create bigwig file for the reverse strand.
@@ -87,10 +96,11 @@ samtools view -b -f 64 -F 16 --threads $THREADS $BAM > $BAMREV2
 samtools merge --threads $THREADS -f $BAMREV $BAMREV1 $BAMREV2
 samtools index $BAMREV
 bedtools genomecov -ibam $BAMREV -bg -split -strand - -scale $SCALEFACTOR > $BEDGRAPHREV
-bedGraphToBigWig $BEDGRAPHREV $CHRSIZE $BIGWIGREV
+sort -k1,1 -k2,2 $BEDGRAPHREV > $BEDGRAPHREVSORTED
+bedGraphToBigWig $BEDGRAPHREVSORTED $CHRSIZE $BIGWIGREV
 ```
 
 #### Remove temporary files.
 ```bash
-rm $BAMFOR $BAMFFOR1 $BAMFFOR2 $BAMREV $BAMREV1 $BAMREV2 $BEDGRAPH $BEDGRAPHFOR $BEDGRAPHREV
+rm $BAMFOR $BAMFFOR1 $BAMFFOR2 $BAMREV $BAMREV1 $BAMREV2 $BEDGRAPH $BEDGRAPHFOR $BEDGRAPHREV $BEDGRAPHSORTED $BEDGRAPHFORSORTED $BEDGRAPHREVSORTED
 ```
