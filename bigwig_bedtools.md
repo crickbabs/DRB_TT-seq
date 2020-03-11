@@ -74,7 +74,7 @@ SCALEFACTOR=1
 #### Create bigwig file for all reads.
 ```bash
 bedtools genomecov -ibam $BAM -bg -split -scale $SCALEFACTOR > $BEDGRAPH
-sort -k1,1 -k2,2 $BEDGRAPH > $BEDGRAPHSORTED
+sort -k1,1 -k2,2n $BEDGRAPH > $BEDGRAPHSORTED
 bedGraphToBigWig $BEDGRAPHSORTED $CHRSIZE $BIGWIG
 ```
 
